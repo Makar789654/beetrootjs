@@ -1,44 +1,43 @@
-const shoppingList = [
-    {
-        product: "apple",
-        amount: 10,
-        bought: true,
-        price: 5,
-        summ: 50,
-    },
-    {
-        product: "cheese",
-        amount: 4,
-        bought: true,
-        price: 10,
-        summ: 40,
-    },
-    {
-        product: "water",
-        amount: 100,
-        bought: false,
-        price: 1,
-        summ: 0,
-    },{
-        product: "wine",
-        amount: 10,
-        bought: true,
-        price: 40,
-        summ: 400,
-    },
-    {
-        product: "pineaple",
-        amount: 3,
-        bought: false,
-        price: 30,
-        summ: 0,
-    },
-];
+class Product {
+    constructor(nameOfProduct, amount, status, price, summ) {
+      this.nameOfProduct = nameOfProduct;
+      this.amount = amount;
+      this.status = status;
+      this.price = price;
+      this.summ = summ;
+    }
+  
+    static sortProduct(a) {
+      if (a.status == false) return -1; 
+      if (a.status == true) return 1; 
+    }
+  
+    static showProduct(a) {
+      return a.nameOfProduct;
+    }
+  }
+   
+  let shopList = [
+    new Product('apple', 2, true, 5, 50),
+    new Product('cheese', 4, true, 10, 40),
+    new Product('water', 100, false, 1, 0),
+    new Product('wine', 10, true, 40, 400),
+    new Product("pineaple", 3, false, 30, 0)
+  ];
+  
+shopList.sort(Product.sortProduct);
+console.log(shopList.map(Product.showProduct));
+let newProduct = new Product('chocolate', 2, false, 5, 10);
 
-shoppingList.sort(function(x, y ) {
-    return (x.bought === y.bought)? 0 : x? 1 : -1;
-});
-console.log(shoppingList);
+shopList.push(newProduct);
+shopList.sort(Product.sortProduct);
+console.log(shopList.map(Product.showProduct));
+
+
+
+
+
+
 
 
 
