@@ -33,6 +33,12 @@ shopList.push(newProduct);
 shopList.sort(Product.sortProduct);
 console.log(shopList.map(Product.showProduct));
 
+let newShopList = shopList.splice(2, 1)
+console.log(shopList.map(Product.showProduct));
+// let newShopList = shopList.filter(function(f) { return f !== Product.nameOfProduct("wine") });
+// console.log(shopList.map(Product.showProduct));
+
+
 
 
 
