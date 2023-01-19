@@ -9,36 +9,29 @@
 </head>
 
 <body>
-  <img src="./0.jpeg" class="img" alt="cat" name="img" width="300">
+    <img src="./0.jpeg" alt="cat" width="300">
 
 
     <script>
-        let img = document.querySelector('.img')
+        let img = document.querySelector('img')
 
         // Виводить рандомне число 
         function getRandomInt(max) {
             return Math.floor(Math.random() * max);
         }
-        let images = new Array();
-        images.push("./0.jpeg");
-        images.push("./1.jpeg");
-        images.push("./2.jpeg");
-        images.push("./3.jpeg");
+
         // Задача
         // Кри клікі на картинку вони повинна рандомно змінюватися в діапазоні от 1 до 4
-        // img.onclick = () => {
-        function pickimg() {
-        document.img.src = images[getRandomInt(0, images.length - 1)];
-            }
-        document.querySelector(".img/src").onclick = pickimg ;
+        img.onclick = () => {
+
             // Код пишимо тут
             // Додаємо або переписуємо
-            // img.setAttribute( "src", './0.jpeg');
+            // img.setAttribute('src', './0.jpeg');
 
-            // let random = getRandomInt(4)
-
-            // console.log(random);
-        
+            let random = getRandomInt(4)
+            img.setAttribute("src", `./${random}.jpeg`);
+            console.log(random);
+        }
     </script>
 </body>
 
