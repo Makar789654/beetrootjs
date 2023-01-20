@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <style>
+        .box {
+            width: 100px;
+            height: 100px;
+            background-color: aqua;
+            border-radius: 100px;
+        }
+
+        .wrapper {
+            width: 100vw;
+            height: 100vh;
+        }
+    </style>
+</head>
+
+<body>
+
+ 
+        <div class="box"></div>
+  
+
+    <script>
+
+        let wrap = document.querySelector('.wrapper');
+        let ball = document.querySelector('.box');
+
+
+
+        ball.onmousedown = function(e) {
+
+  let coords = getCoords(ball);
+  let shiftX = e.pageX - coords.left;
+  let shiftY = e.pageY - coords.top;
+
+  ball.style.position = 'absolute';
+  document.body.appendChild(ball);
+  moveAt(e);
+
+  ball.style.zIndex = 1000; 
+
+  function moveAt(e) {
+    ball.style.left = e.pageX - shiftX + 'px';
+    ball.style.top = e.pageY - shiftY + 'px';
+  }
+
+  document.onmousemove = function(e) {
+    moveAt(e);
+  };
+
+  ball.onmouseup = function() {
+    document.onmousemove = null;
+    ball.onmouseup = null;
+  };
+
+}
+
+        // ball.ondragstart = function() {
+        // return false;
+        // };
+
+        function getCoords(elem) {   
+        let box = elem.getBoundingClientRect();
+            return {
+        top: box.top + pageYOffset,
+            left: box.left + pageXOffset
+        };
+        }
+
+
+        // 2: зробити умову якою покласти мячик
+        // box.removeEventListener('click', moveBox)
+
+    </script>
+</body>
+
+</html>
