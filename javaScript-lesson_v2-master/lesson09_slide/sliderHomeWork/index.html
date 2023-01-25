@@ -1,0 +1,99 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Slider</title>
+    <link rel="stylesheet" 
+    href="https://cdn.jsdelivr.net/npm/swiper@8/swiper-bundle.min.css"/>
+    <style>
+        html,
+    body {
+      position: relative;
+      height: 100%;
+    }
+
+    body {
+      background: #eee;
+      font-family: Helvetica Neue, Helvetica, Arial, sans-serif;
+      font-size: 14px;
+      color: #000;
+      margin: 0;
+      padding: 0;
+    }
+
+    .swiper {
+      width: 400px;
+      height: 400px;
+      position: absolute;
+      left: 50%;
+      top: 50%;
+      margin-left: -200px;
+      margin-top: -200px;
+    }
+
+    .swiper-slide {
+      background-position: center;
+      background-size: cover;
+    }
+
+    .swiper-slide img {
+      display: block;
+      width: 100%;
+    }
+    </style>
+</head>
+<body>
+
+    <div class="swiper mySwiper">
+        <div class="swiper-wrapper">
+          <div class="swiper-slide">
+            <img class="img" src="./src/1.jpg" alt="slider">
+          </div>
+          <div class="swiper-slide">
+            <img class="img" src="./src/4.jpg" alt="slider">
+          </div>
+          <div class="swiper-slide">
+            <img class="img" src="./src/2.jpg" alt="slider">
+          </div>
+          <div class="swiper-slide">
+            <img class="img" src="./src/1.jpg" alt="slider">
+          </div>
+          <div class="swiper-slide">
+            <img class="img" src="./src/4.jpg" alt="slider">
+          </div>
+          <div class="swiper-slide">
+            <img class="img" src="./src/5.jpg" alt="slider">
+          </div>
+          <div class="swiper-slide">
+            <img class="img" src="./src/2.jpg" alt="slider">
+          </div>
+          <div class="swiper-slide">
+            <img class="img" src="./src/1.jpg" alt="slider">
+          </div>
+          <div class="swiper-slide">
+            <img class="img" src="./src/4.jpg" alt="slider">
+          </div>
+        </div>
+        <div class="swiper-pagination"></div>
+      </div>    
+      <script src="https://cdn.jsdelivr.net/npm/swiper@8/swiper-bundle.min.js"></script>
+
+      <!-- Initialize Swiper -->
+      <script>
+         let swiper = new Swiper(".mySwiper", {
+      effect: "cube",
+      grabCursor: true,
+      cubeEffect: {
+        shadow: true,
+        slideShadows: true,
+        shadowOffset: 20,
+        shadowScale: 0.94,
+      },
+      pagination: {
+         el: ".swiper-pagination",}
+      ,
+    });
+      </script>
+</body>
+</html>
