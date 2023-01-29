@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body {
+            display: inline-block;
+
+        }
+        label {
+            position: relative;
+        }
+
+        .show {
+            position: absolute;
+            right: 7px;
+            cursor: pointer;
+            padding-top: 4px;
+        }
+        .wrap {
+            width: 190px;
+        height: 150px;
+        position: absolute;
+        left: 50%;
+        top: 50%;
+        margin-left: -100px;
+        margin-top: -100px;
+        border: 1px solid;
+        border-radius: 10px;
+        border-color: aqua;
+        justify-items: content;
+        padding: 10px;
+        background-color: rgba(134, 253, 142, 0.2);
+        }
+        input {
+        -webkit-transition: all 0.30s ease-in-out;
+        -moz-transition: all 0.30s ease-in-out;
+        -ms-transition: all 0.30s ease-in-out;
+        -o-transition: all 0.30s ease-in-out;
+        outline: none;
+        padding: 3px 5px 3px 5px;
+        margin: 5px 0px 3px 0px;
+        border: 1px solid #DDDDDD;
+        border-radius: 5px;
+        }
+ 
+        input:focus {
+         box-shadow: 0 0 5px rgba(81, 203, 238, 1);
+        padding: 3px 5px 3px 5px;
+        margin: 5px 0px 3px 0px;
+         border: 1px solid rgba(81, 203, 238, 1);
+         border-radius: 5px;
+            }
+            button {
+                margin-left: 40px;
+            }
+    </style>
+</head>
+
+<body>
+
+
+
+    <!-- // Екстра реалізувати show password -->
+    <div class="wrap">
+    <input class="inp" type="text" placeholder="Name">
+    <label for="inpPassword">
+        <input id="inpPassword" class="inp2" type="password" placeholder="Password">
+        <span class="show" onmouseover="mouseoverPass();" onmouseout="mouseoutPass();"
+        >&#128065;</span>
+    </label>
+
+    <label for="id1">
+        <input id="id1" type="checkbox"> <span>запамятати</span>
+    </label>
+
+    <button>login</button>
+
+
+    <div class="out">
+        <h4 style="color: green" class="h4">Login</h4>
+        <!-- <h4 style="color: red">Error</h4> -->
+    </div>
+    </div>
+
+
+
+    <script>
+      
+        let user = {
+            login: 'admin',
+            password: 'admin'
+        }
+
+        let inp = document.querySelector('.inp')
+        let inp2 = document.querySelector('.inp2')
+        let chek = document.getElementById("id1")
+        let show = document.querySelector(".show")
+
+        inp.value = user.login;
+        inp2.value = user.password;
+        inp.value = localStorage.getItem('login');
+        inp2.value = localStorage.getItem('password');
+
+        document.querySelector('button').onclick = () => {
+            if (chek.checked === true ) {
+            localStorage.setItem('login', inp.value)
+            localStorage.setItem('password', inp2.value)
+            document.querySelector("h4").innerHTML = "Welcome " + inp.value ;
+            document.querySelector("h4").style.color = "green"} 
+        }  
+
+        function mouseoverPass(obj) {
+            var obj = document.getElementById('inpPassword');
+        obj.type = "text";
+        }
+        function mouseoutPass(obj) {
+            var obj = document.getElementById('inpPassword');
+        obj.type = "password";
+        }
+
+        if (localStorage.getItem("login") === null) {
+            document.querySelector("h4").innerHTML = "Error";
+            document.querySelector("h4").style.color = "red"
+            }
+    </script>
+
+</body>
+
+</html>
